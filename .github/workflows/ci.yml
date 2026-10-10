@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run test:security
+      - run: bun run build
+        env:
+          # Placeholders: the build does not connect to these services.
+          DATABASE_URL: postgresql://user:pass@localhost.neon.tech/ci
+          BETTER_AUTH_SECRET: ci-placeholder-secret-not-used-anywhere
+          NEXT_TELEMETRY_DISABLED: 1
