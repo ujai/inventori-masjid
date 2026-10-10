@@ -50,6 +50,8 @@ bun run dev                       # http://localhost:3000
 
 Optionally load demo data with `bun run db:seed:samples`.
 
+No Neon account? Run `docker compose up -d`, set `DATABASE_URL="postgres://postgres:postgres@db.localtest.me:5432/main"`, and use `bun run db:migrate:local` instead of `db:migrate`. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 Sign in with the Google account you registered as admin, then invite other users from the **Pengguna** page.
 
 ### Customising for your mosque
@@ -71,10 +73,12 @@ The app is designed for Vercel. The daily notification cron is defined in `verce
 | `bun run typecheck` | TypeScript check |
 | `bun run db:generate` | Generate migrations after editing `db/schema.ts` |
 | `bun run db:migrate` | Apply migrations |
+| `bun run db:migrate:local` | Apply migrations to the local Docker database |
 | `bun run db:seed` | Seed lookup tables |
 | `bun run db:seed:samples` | Seed demo data |
 | `bun run db:create-admin` | Create or promote an admin user |
 | `bun run test:security` | Static security checks |
+| `bun run test:auth:local` | Demo admin/AJK sessions for a local database (no Google) |
 | `bun run test:uat` | Playwright UAT suite (see [`tests/README.md`](./tests/README.md)) |
 | `bun run screenshot:guides` | Regenerate user-guide screenshots |
 

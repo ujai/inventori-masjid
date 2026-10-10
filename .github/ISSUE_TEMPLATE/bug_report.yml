@@ -1,0 +1,39 @@
+name: Bug report / Lapor pepijat
+description: Something is not working / Ada sesuatu yang tidak berfungsi
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real names, emails, phone numbers, or secrets from your deployment.
+        Jangan masukkan nama, emel, nombor telefon sebenar atau rahsia (secret) dari sistem anda.
+        Security issues: use **Security → Report a vulnerability** instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / Apa yang berlaku?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / Langkah untuk ulang
+      placeholder: |
+        1. Go to /items
+        2. Click ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour / Apa yang dijangka
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role / Peranan
+      options: [Admin, AJK, Not signed in]
+  - type: input
+    id: environment
+    attributes:
+      label: Environment / Persekitaran
+      placeholder: "Commit or version, browser, device (e.g. Chrome on Android)"

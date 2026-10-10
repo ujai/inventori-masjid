@@ -27,4 +27,4 @@ Panduan langkah-demi-langkah untuk AJK masjid guna sistem inventori.
 
 Hubungi Admin masjid dalam WhatsApp grup AJK.
 
-> **Nota:** Gambar skrin belum disertakan. Jana dengan `bun run screenshot:guides` terhadap pangkalan data yang di-seed dengan `bun run db:seed:samples` (bukan data sebenar).
+> **Nota:** Gambar skrin dijana daripada data contoh (`bun run db:seed:samples`), bukan data sebenar. Cara jana semula: lihat bahagian "Screenshots" dalam [CONTRIBUTING.md](../../CONTRIBUTING.md).

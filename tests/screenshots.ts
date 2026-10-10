@@ -53,7 +53,7 @@ const SHOTS: Shot[] = [
     guide: '03-cari-item', step: 3, url: '/items', role: 'admin',
     waitFor: 'input[placeholder*="Cari barang"]',
     action: async (page) => {
-      await page.getByRole('button', { name: /Filter/i }).first().click();
+      await page.getByRole('button', { name: /Tapis/i }).first().click();
       await page.waitForTimeout(300);  // drawer slide animation
     },
   },
@@ -75,6 +75,7 @@ const SHOTS: Shot[] = [
       if (await btn.count() > 0) {
         await btn.click();
         await page.waitForTimeout(400);
+        await page.locator('#purpose').selectOption('pinjam');
       }
     },
     fullPage: true,
@@ -126,9 +127,22 @@ const MANUAL_NOTES: Record<string, string[]> = {
   ],
 };
 
+// Item used for {ID} shots. Default is a db:seed:samples item with movement history.
+const SHOT_ITEM_NAME = process.env.SCREENSHOT_ITEM_NAME ?? 'Periuk Besar';
+
 async function getFirstItemId(ctx: BrowserContext): Promise<number | null> {
   const page = await ctx.newPage();
   try {
+    // In-page fetch: ctx.request crashes under Bun when the response sets a cookie.
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+    const namedId = await page.evaluate(async (name) => {
+      const res = await fetch(`/api/items?q=${encodeURIComponent(name)}&limit=1`);
+      if (!res.ok) return null;
+      const body = (await res.json()) as { data?: { id: number }[] };
+      return body.data?.[0]?.id ?? null;
+    }, SHOT_ITEM_NAME);
+    if (namedId != null) return namedId;
+
     await page.goto(`${BASE_URL}/items`, { waitUntil: 'networkidle', timeout: 30_000 });
     const firstItem = page.locator('a[href^="/items/"]').filter({ hasNot: page.locator('text=/Tambah|Kembali/') }).first();
     const count = await firstItem.count();
@@ -159,6 +173,8 @@ async function shoot(ctx: BrowserContext, shot: Shot, itemId: number | null): Pr
 
   if (shot.action) {
     await shot.action(page);
+    // Actions can scroll the page; full-page captures then draw the sticky header mid-page.
+    await page.evaluate(() => window.scrollTo(0, 0));
   }
 
   const dir = path.join(SHOTS_DIR, shot.guide);

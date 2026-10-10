@@ -1,0 +1,21 @@
+name: Feature request / Cadangan ciri
+description: Suggest an improvement / Cadangkan penambahbaikan
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve? / Masalah apa yang diselesaikan?
+      description: Describe how your masjid committee works today. / Terangkan cara AJK masjid anda bekerja sekarang.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution / Cadangan penyelesaian
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered / Alternatif lain
