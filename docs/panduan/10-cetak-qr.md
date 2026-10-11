@@ -23,7 +23,7 @@ Browser akan buka print dialog. Anda akan nampak preview label QR — mengandung
 - Kod aset (cth: DPR-0001)
 - QR code yang point ke URL barang ni dalam sistem
 
-> Screenshot print preview perlu ditambah manual nanti (`screenshots/10-cetak-qr/step-2.png`).
+![Preview label QR](screenshots/10-cetak-qr/step-2.png)
 
 ### 4. Set printer + saiz, lepas tu Print
 
@@ -34,7 +34,7 @@ Pilih:
 
 Klik **Print**.
 
-> Screenshot print dialog perlu ditambah manual nanti (`screenshots/10-cetak-qr/step-3.png`).
+![Tetapan print](screenshots/10-cetak-qr/step-3.png)
 
 ### 5. Potong + tampal pada barang
 

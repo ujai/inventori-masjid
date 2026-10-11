@@ -47,7 +47,7 @@ Tekan **Ctrl+P** (atau Cmd+P pada Mac). Print dialog akan keluar.
 
 Klik **Print** atau **Save**.
 
-> Screenshot print dialog handover perlu ditambah manual nanti (`screenshots/13-serah-terima-ajk/step-4.png`).
+![Tetapan print laporan serah terima](screenshots/13-serah-terima-ajk/step-4.png)
 
 ### 5. Hantar PDF ke AJK baru
 
