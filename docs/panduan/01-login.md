@@ -24,7 +24,7 @@ Anda akan nampak page Log Masuk dengan satu butang biru besar.
 
 Tekan butang biru tu sekali. Jangan double-click.
 
-> Screenshot butang / redirect Google perlu ditambah manual nanti (`screenshots/01-login/step-2.png`).
+![Klik Log Masuk dengan Google](screenshots/01-login/step-2.png)
 
 ### 3. Pilih akaun Google anda
 
@@ -32,7 +32,7 @@ Google akan tunjuk senarai akaun yang dah login dalam Chrome ni. Pilih yang DAH 
 
 Kalau akaun tu tak nampak, klik **Use another account** dan masukkan email + password.
 
-> Screenshot Google account chooser perlu ditambah manual nanti (`screenshots/01-login/step-3.png`).
+![Pilih akaun Google](screenshots/01-login/step-3.png)
 
 ### 4. Tunggu sebentar
 
